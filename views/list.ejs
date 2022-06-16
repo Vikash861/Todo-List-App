@@ -1,12 +1,23 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ToDo List</title>
-</head>
-<body>
-    <h1>It's a <%= kindOfDay > !</h1>
-</body>
-</html>
+<%- include("layout/header.ejs") -%>
+    <div class="box" id="heading">
+        <h1>
+            <%= listTitle %>
+        </h1>
+    </div>
+    <div class="box">
+        <% itemList.forEach((element)=>{ %>
+            <div class="item">
+                <input type="checkbox">
+                <p>
+                    <%= element %>
+                </p>
+            </div>
+            <% }) %>
+
+                <form action="/" method="post">
+                    <label for="listItem"></label>
+                    <input type="text" name="newItem" id="listItem" placeholder="New Item" required autocomplete="off">
+                    <button style="cursor:pointer;" type="submit" name="list" value="<%= listTitle %>">+</button>
+                </form>
+    </div>
+<%- include('layout/footer.ejs') -%>
